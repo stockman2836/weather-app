@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Travel Weather Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1 class="logo">🌍 TravelWeather</h1>
+        <div class="controls">
+          <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+            🌙
+          </button>
+          <button id="geolocate" class="btn-icon" aria-label="Use my location">
+            📍
+          </button>
+        </div>
+      </header>
+
+      <form id="city-form" class="search">
+        <input
+          type="text"
+          id="city-input"
+          class="search__input"
+          placeholder="Введите город"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn">Найти</button>
+      </form>
+
+      <main class="results">
+        <section id="current-weather" class="card weather-card"></section>
+
+        <section id="forecast" class="forecast-grid"></section>
+      </main>
+    </div>
+
+    <div id="background-overlay"></div>
+
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

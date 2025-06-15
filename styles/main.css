@@ -1,0 +1,161 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-sans: 'Segoe UI', Roboto, sans-serif;
+
+  --bg: #f0f2f5;
+  --fg: #1a1a1a;
+  --card-bg: #ffffff;
+  --accent: #4a90e2;
+  --accent-light: #e6f0fc;
+  --text-light: #666666;
+  --shadow: rgba(0, 0, 0, 0.1);
+
+  --radius: 0.75rem;
+  --gap: 1rem;
+
+  --bg-dark: #121212;
+  --fg-dark: #eee;
+  --card-dark: #1e1e1e;
+}
+[data-theme="dark"] {
+  --bg: var(--bg-dark);
+  --fg: var(--fg-dark);
+  --card-bg: var(--card-dark);
+  --accent-light: rgba(74,144,226,0.1);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  position: relative;
+  line-height: 1.5;
+}
+.app {
+  max-width: 700px;
+  margin: auto;
+  padding: var(--gap);
+  position: relative;
+  z-index: 1;
+}
+
+#background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(0.6);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--gap);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+.controls .btn-icon {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+.controls .btn-icon:hover {
+  transform: scale(1.1);
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+}
+.search__input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--accent-light);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.search__input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: darken(var(--accent), 10%);
+}
+
+.card {
+  background: var(--card-bg);
+  padding: var(--gap);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-top: var(--gap);
+}
+
+.weather-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+.weather-card img {
+  width: 80px;
+  height: 80px;
+}
+.weather-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+.weather-card p {
+  color: var(--text-light);
+}
+
+/* 8. Прогноз */
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
+  margin-top: var(--gap);
+}
+.forecast-grid .card {
+  text-align: center;
+  padding: 0.5rem;
+}
+.forecast-grid .card img {
+  width: 50px;
+  height: 50px;
+}
+.forecast-grid .card h3 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1rem;
+}
+.forecast-grid .card p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
